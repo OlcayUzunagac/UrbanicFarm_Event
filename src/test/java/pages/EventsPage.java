@@ -39,5 +39,11 @@ public class EventsPage extends CommonPage{
     public WebElement goButton;
 @FindBy(xpath = "//h5[@class='text-center text-warning mt-3']")
     public List<WebElement> scheduledEventsTitles;
+    @FindBy(xpath = "//div[@class='attendedEvents_boxDiv__vY473 row p-0']//h6[contains(text(),'Available Seat:')]")
+    public WebElement registeredEventsChart;
+    @FindBy(xpath = "//button[text()='Cancel']")
+    public WebElement button_Cancel;
+    @FindBy(xpath = "//div//h6[contains(text(),'Available')]/../..//h5")
+    public List<WebElement> registeredEventsTitles;
 
 }
