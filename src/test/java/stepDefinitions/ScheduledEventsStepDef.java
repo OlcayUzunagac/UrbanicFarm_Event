@@ -53,9 +53,7 @@ public class ScheduledEventsStepDef extends CommonPage {
     @And("user clicks on the Events module on the side bar")
     public void userClicksOnTheEventsModuleOnTheSideBar() {
         ReusableMethods.waitFor(5);
-        //ReusableMethods.scrollToElement(getEventsPage().eventModule);
         JS_utilities.scrollAllUpByJS();
-        //JS_utilities.scrollIntoViewJS(getEventsPage().eventModule);
         getEventsPage().eventModule.click();
     }
 
@@ -107,8 +105,6 @@ public class ScheduledEventsStepDef extends CommonPage {
         for (int i = 0; i < chartModules.size(); i++) {
 
             WebElement element = Driver.getDriver().findElement(By.xpath("(//div[contains(@class,'Scheduled')])[1]//h6[contains(text(),'" + chartModules.get(i) + "')]"));
-
-
             Assert.assertTrue(element.getText().contains(chartModules.get(i)));
             System.out.println(element.getText() + "********");
 
