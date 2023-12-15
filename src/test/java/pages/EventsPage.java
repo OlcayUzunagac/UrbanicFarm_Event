@@ -22,6 +22,8 @@ public class EventsPage extends CommonPage{
     public WebElement scheduledEventsButton;
 @FindBy(xpath = "//button[.='Registered Events']")
     public WebElement registeredEventsButton;
+@FindBy(xpath = "(//div[contains(@class,'Scheduled')])[1]//h6[contains(text(),'Date:')]")
+    public WebElement date;
 @FindBy(xpath = "//button[.='Attended Events']")
     public WebElement attendedEventsButton;
 @FindBy(xpath = "//div[@class='ScheduledEvents_boxDiv__2ixVx']")

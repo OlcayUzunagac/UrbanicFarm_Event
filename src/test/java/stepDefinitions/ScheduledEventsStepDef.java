@@ -42,6 +42,7 @@ public class ScheduledEventsStepDef extends CommonPage {
     public void userClicksOnTheLoginButton() {
         getEventsPage().loginButton.click();
     }
+
     @And("user enters zipCode and clicks Go button")
     public void userEntersZipCodeAndClicksGoButton() {
         ReusableMethods.waitFor(3);
@@ -52,17 +53,17 @@ public class ScheduledEventsStepDef extends CommonPage {
     @And("user clicks on the Events module on the side bar")
     public void userClicksOnTheEventsModuleOnTheSideBar() {
         ReusableMethods.waitFor(5);
-       //ReusableMethods.scrollToElement(getEventsPage().eventModule);
+        //ReusableMethods.scrollToElement(getEventsPage().eventModule);
         JS_utilities.scrollAllUpByJS();
-       //JS_utilities.scrollIntoViewJS(getEventsPage().eventModule);
+        //JS_utilities.scrollIntoViewJS(getEventsPage().eventModule);
         getEventsPage().eventModule.click();
     }
 
     @Then("verify that {string}, {string} and {string} titles are visible and clickable")
     public void verifyThatAndTitlesAreVisibleAndClickable(String scheduledEvents, String registeredEvents, String attendedEvents) {
         ReusableMethods.waitFor(3);
-        Assert.assertEquals(scheduledEvents,getEventsPage().scheduledEventsButton.getText());
-        Assert.assertEquals(registeredEvents,getEventsPage().registeredEventsButton.getText());
+        Assert.assertEquals(scheduledEvents, getEventsPage().scheduledEventsButton.getText());
+        Assert.assertEquals(registeredEvents, getEventsPage().registeredEventsButton.getText());
         Assert.assertEquals(attendedEvents, getEventsPage().attendedEventsButton.getText());
         Assert.assertTrue(getEventsPage().scheduledEventsButton.isEnabled());
         Assert.assertTrue(getEventsPage().registeredEventsButton.isEnabled());
@@ -92,27 +93,26 @@ public class ScheduledEventsStepDef extends CommonPage {
         ReusableMethods.waitFor(3);
         for (int i = 0; i < getEventsPage().scheduledEventsTitles.size(); i++) {
             getEventsPage().scheduledEventsTitles.get(i).isDisplayed();
-            System.out.println("getEventsPage().scheduledEventsTitles = " + getEventsPage().scheduledEventsTitles);
+            System.out.println("getEventsPage().scheduledEventsTitles = " + getEventsPage().scheduledEventsTitles.get(i).getText());
 
         }
     }
 
     @And("verify that In the Scheduled events cart, all modules are visible")
     public void verifyThatInTheScheduledEventsCartAllModulesAreVisible(DataTable dataTable) {
+
         ReusableMethods.waitFor(3);
-        List <String> chartModules= dataTable.column(0);
-        int count = 0;
+        List<String> chartModules = dataTable.column(0);
+
         for (int i = 0; i < chartModules.size(); i++) {
 
-            WebElement element = Driver.getDriver().findElement(By.xpath("//h6[.='"+ chartModules+"']"));
-           Assert.assertEquals(6, element.getSize());
-            //Assert.assertEquals(chartModules.get(i),element.getText());
-            System.out.println(count + ".element = " + element.getText());
-            count++;
+            WebElement element = Driver.getDriver().findElement(By.xpath("(//div[contains(@class,'Scheduled')])[1]//h6[contains(text(),'" + chartModules.get(i) + "')]"));
 
+
+            Assert.assertTrue(element.getText().contains(chartModules.get(i)));
+            System.out.println(element.getText() + "********");
 
         }
-
 
     }
 
@@ -135,7 +135,6 @@ public class ScheduledEventsStepDef extends CommonPage {
         Assert.assertTrue(getEventsPage().eventRegistrationTitle.isDisplayed());
         System.out.println(getEventsPage().eventRegistrationTitle.getText());
     }
-
 
 
 }
