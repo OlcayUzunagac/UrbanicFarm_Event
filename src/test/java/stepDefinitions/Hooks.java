@@ -10,19 +10,9 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
-import utilities.ConfigurationReader;
-
 import utilities.Driver;
-import utilities.ReusableMethods;
-import java.util.HashMap;
-import java.util.Map;
-
-
-import static io.restassured.RestAssured.given;
 
 public class Hooks {
-
-
 
     public static WebDriver driver;
     public static CommonPage commonPage;
