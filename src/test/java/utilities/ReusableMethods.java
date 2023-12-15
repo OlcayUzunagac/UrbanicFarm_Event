@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.LocalDate;
+import static stepDefinitions.Hooks.driver;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,7 +27,7 @@ import java.util.function.Function;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static stepDefinitions.Hooks.driver;
+
 
 public class ReusableMethods {
 
