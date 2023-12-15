@@ -15,17 +15,17 @@ Feature: Scheduled events
     When user clicks on the Scheduled events,
     Then verify that related page is opened and  all the scheduled events are displayed
     And verify that In the Scheduled events cart, headers are visible
-#    And verify that In the Scheduled events cart, all modules are visible
-#      | Date           |
-#      | Time           |
-#      | Attendee Limit |
-#      | Available Seat |
-#      | Fee            |
-#      | Location       |
+    And verify that In the Scheduled events cart, all modules are visible
+      | Date           |
+      | Time           |
+      | Attendee Limit |
+      | Available Seat |
+      | Fee            |
+      | Location       |
 
     And verify that In the Scheduled events cart, Registered button should be visible and clickable
     When I clicked on the Register button
-  Then verify that Event Registration cart is opened
+    Then verify that Event Registration cart is opened
 
 
 
