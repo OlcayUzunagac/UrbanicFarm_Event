@@ -18,8 +18,9 @@ Feature: Registered Events
       | Time           |
       | Attendee Limit |
       | Available Seat |
-      | Fee            |
       | Location       |
+      | Details        |
+      | Fee            |
 
     And verify that in the Registered Events cart, Cancel button should be visible and clickable
     When I clicked on the Cancel button
